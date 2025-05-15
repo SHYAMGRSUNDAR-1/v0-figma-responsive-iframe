@@ -8,6 +8,9 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null)
   const isMobileOrTabletPortrait = useMediaQuery("(max-width: 1024px) and (orientation: portrait)")
 
+  // Define the embed host - this should match your domain
+  const embedHost = "shyamgr-portfolio"
+
   useEffect(() => {
     setIsMounted(true)
   }, [])
@@ -36,9 +39,9 @@ export default function Home() {
 
       <div className="w-full h-full">
         {isMobileOrTabletPortrait ? (
-          // Mobile Embed - Using more mobile-friendly parameters
+          // Mobile Embed - With proper embed-host parameter
           <iframe
-            src="https://embed.figma.com/proto/zb93RKmH3dnUzTSotZPd15/Shyam-Sundar-Portfolio?page-id=2180%3A2223&type=design&node-id=2180-2224&viewport=669%2C162%2C0.99&t=dsCEsTCU3r7s1u5L-1&scaling=scale-down&starting-point-node-id=2180%3A2224&hide-ui=1"
+            src={`https://embed.figma.com/proto/zb93RKmH3dnUzTSotZPd15/Shyam-Sundar-Portfolio?page-id=2180%3A2223&type=design&node-id=2180-2224&viewport=669%2C162%2C0.99&t=dsCEsTCU3r7s1u5L-1&scaling=scale-down&starting-point-node-id=2180%3A2224&hide-ui=1&embed-host=${embedHost}`}
             style={{
               width: "100%",
               height: "100%",
@@ -51,9 +54,9 @@ export default function Home() {
             onError={handleIframeError}
           />
         ) : (
-          // Desktop Embed
+          // Desktop Embed - With proper embed-host parameter
           <iframe
-            src="https://embed.figma.com/proto/zb93RKmH3dnUzTSotZPd15/Shyam-Sundar-Portfolio?content-scaling=fixed&disable-default-keyboard-nav=1&embed-host=iframely&hide-ui=1&hotspot-hints=0&node-id=2043-135&page-id=2043%3A134&scaling=scale-down-width&theme=light"
+            src={`https://embed.figma.com/proto/zb93RKmH3dnUzTSotZPd15/Shyam-Sundar-Portfolio?content-scaling=fixed&disable-default-keyboard-nav=1&hide-ui=1&hotspot-hints=0&node-id=2043-135&page-id=2043%3A134&scaling=scale-down-width&theme=light&embed-host=${embedHost}`}
             style={{
               width: "100%",
               height: "100%",
