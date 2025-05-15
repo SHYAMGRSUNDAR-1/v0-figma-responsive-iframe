@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Shyam's Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #000;
+    }
+    
+    .embed-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .embed-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      border: none;
+    }
+    
+    /* Fix for iOS Safari */
+    @supports (-webkit-touch-callout: none) {
+      html, body {
+        height: -webkit-fill-available;
+      }
+      .embed-container {
+        height: -webkit-fill-available;
+      }
+    }
+    
+    /* Loading indicator */
+    .loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-family: Arial, sans-serif;
+      z-index: 1;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+    
+    .loader.hidden {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">Loading portfolio...</div>
+  <div class="embed-container">
+    <iframe 
+      src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fzb93RKmH3dnUzTSotZPd15%2FShyam-Sundar-Portfolio%3Fpage-id%3D2043%253A134%26node-id%3D2043-135%26viewport%3D203%252C224%252C0.12%26t%3DSETB6k3ObaIlL5Ll-8%26scaling%3Dcontain%26content-scaling%3Dresponsive%26disable-default-keyboard-nav%3D1%26hotspot-hints%3D0%26hide-ui%3D1"
+      allowfullscreen
+      allow="fullscreen"
+      onload="document.querySelector('.loader').classList.add('hidden')">
+    </iframe>
+  </div>
+  
+  <script>
+    // Ensure iframe takes up full viewport
+    function resizeIframe() {
+      const iframe = document.querySelector('iframe');
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      
+      iframe.style.width = width + 'px';
+      iframe.style.height = height + 'px';
+    }
+    
+    // Initial resize
+    resizeIframe();
+    
+    // Resize on window resize
+    window.addEventListener('resize', resizeIframe);
+    
+    // Force resize on orientation change for mobile devices
+    window.addEventListener('orientationchange', function() {
+      setTimeout(resizeIframe, 100);
+    });
+    
+    // Prevent scrolling/bouncing on iOS
+    document.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+    }, { passive: false });
+  </script>
+</body>
+</html>
