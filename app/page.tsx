@@ -39,9 +39,9 @@ export default function Home() {
 
       <div className="w-full h-full">
         {isMobileOrTabletPortrait ? (
-          // Mobile Embed - With proper embed-host parameter
+          // Mobile Embed - Using the exact URL parameters you provided
           <iframe
-            src={`https://embed.figma.com/proto/zb93RKmH3dnUzTSotZPd15/Shyam-Sundar-Portfolio?page-id=2180%3A2223&type=design&node-id=2180-2224&viewport=669%2C162%2C0.99&t=dsCEsTCU3r7s1u5L-1&scaling=scale-down&starting-point-node-id=2180%3A2224&hide-ui=1&embed-host=${embedHost}`}
+            src={`https://embed.figma.com/proto/zb93RKmH3dnUzTSotZPd15/Shyam-Sundar-Portfolio?page-id=2180%3A2223&node-id=2180-2224&viewport=298%2C58%2C0.25&t=4WZBtxbFpJnVn9fQ-8&scaling=scale-down-width&content-scaling=fixed&hotspot-hints=0&disable-default-keyboard-nav=1&hide-ui=1&embed-host=${embedHost}`}
             style={{
               width: "100%",
               height: "100%",
